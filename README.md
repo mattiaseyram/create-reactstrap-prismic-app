@@ -1,5 +1,7 @@
 This project is intended to be used as a boilerplate for creating a dynamic website with Create-React-App, Reactstrap, and Prismic.io. 
 
+The starter example can be seen at http://www.mattiaseyram.com/create-reactstrap-prismic-app/, hosted with GitHub Pages
+
 The following dependencies are used:
 
     - "bootstrap": "^4.1.1",
