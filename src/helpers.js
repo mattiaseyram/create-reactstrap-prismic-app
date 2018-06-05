@@ -4,6 +4,8 @@ import { Link, RichText, Date } from 'prismic-reactjs';
 
 //Add your own endpoint here
 const apiEndpoint = 'https://create-reactstrap-prismic-app.prismic.io/api/v2';
+const initialpath = 'create-reactstrap-prismic-app/' //change to '' if no initial path
+export default initialpath;
 
 // Link Resolver
 export function linkResolver(doc) {
@@ -46,7 +48,7 @@ export function PrismicSetNav(cmp) {
                 let pages = nav.data.body;
                 pages.forEach(item => {
                     if(item.primary.item_link && item.primary.item_link.uid)
-                        item.primary.item_link.uid='/'+item.primary.item_link.uid; //lets navbar active link work
+                        item.primary.item_link.uid='/'+initialpath+item.primary.item_link.uid; //lets navbar active link work
                 });
                 cmp.setState({ doc : nav, docs : pages });
             }

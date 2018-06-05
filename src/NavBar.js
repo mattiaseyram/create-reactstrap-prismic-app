@@ -89,11 +89,12 @@ class NavBar extends Component {
             navbarTitle = this.state.doc.data.navbar_title;
             navbarImage = this.state.doc.data.navbar_image.url;
             navbarItems = [];
-            console.log(this.state.docs);
+            //console.log(this.state.docs);
 
             this.state.docs.forEach(item => {
 
                 if (item.primary.item_link.uid) {
+                    console.log(item.primary.item_link.uid);
                     navbarItems.push(this.buildNavItem(item));
                 } else if (item.items && item.items.length > 0) {
                     navbarItems.push(this.buildDropdown(item));

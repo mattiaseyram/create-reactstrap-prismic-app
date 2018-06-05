@@ -11,7 +11,7 @@ class ImageCard extends Component {
     render() {
 
         let card = this.props.card;
-        console.log(card);
+        //console.log(card);
 
         return (
                     <Card>
