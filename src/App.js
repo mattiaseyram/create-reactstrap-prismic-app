@@ -15,8 +15,8 @@ class App extends Component {
         <Header />
         <div className="appContent">
         <Switch>
-          <Route exact path={`${process.env.PUBLIC_URL}/${initialpath}`}  component={Page} />
-          <Route path={`${process.env.PUBLIC_URL}/${initialpath}:slug`}  component={Page} />
+          <Route exact path='/' component={Page} />
+          <Route path='/:slug' component={Page} />
           <Route component={Page} />
         </Switch>
         </div>

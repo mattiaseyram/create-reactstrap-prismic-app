@@ -17,6 +17,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Link, RichText, Date } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
 import { linkResolver, PrismicSetNav } from './helpers';
+import initialpath from './helpers.js'
 
 class NavBar extends Component {
 
@@ -94,7 +95,7 @@ class NavBar extends Component {
             this.state.docs.forEach(item => {
 
                 if (item.primary.item_link.uid) {
-                    console.log(item.primary.item_link.uid);
+                    //console.log(item.primary.item_link.uid);
                     navbarItems.push(this.buildNavItem(item));
                 } else if (item.items && item.items.length > 0) {
                     navbarItems.push(this.buildDropdown(item));
@@ -105,12 +106,12 @@ class NavBar extends Component {
         return (
             <Container>
                 <Navbar light expand="md">
-                    <NavbarBrand href="/">
-                        <span>
-                            {navbarImage &&
-                                <img width="140" height="70" src={navbarImage}></img>} {navbarTitle}
-                        </span>
-                    </NavbarBrand>
+                        <NavbarBrand href="#/home">
+                            <span>
+                                {navbarImage &&
+                                    <img width="140" height="70" src={navbarImage}></img>} {navbarTitle}
+                            </span>
+                        </NavbarBrand>
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav navbar>
