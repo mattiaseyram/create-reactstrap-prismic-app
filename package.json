@@ -1,6 +1,6 @@
 {
   "name": "create-reactstrap-prismic-app",
-  "homepage": "",
+  "homepage": "http://mattiaseyram.github.io/create-reactstrap-prismic-app",
   "version": "0.2.45",
   "private": true,
   "dependencies": {
@@ -20,7 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "gh-pages": "^1.2.0"

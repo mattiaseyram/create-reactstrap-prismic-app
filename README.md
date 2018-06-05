@@ -1,4 +1,6 @@
-This project is intended to be used as a boilerplate for creating a dynamic website with Create-React-App, Reactstrap, and Prismic.io. The following dependencies are used:
+This project is intended to be used as a boilerplate for creating a dynamic website with Create-React-App, Reactstrap, and Prismic.io. 
+
+The following dependencies are used:
 
     - "bootstrap": "^4.1.1",
     - "prismic-javascript": "^1.5.0-beta.3",
@@ -10,6 +12,17 @@ This project is intended to be used as a boilerplate for creating a dynamic webs
     - "react-scripts": "1.1.4",
     - "reactstrap": "^6.0.1"
 
+To send content to this boilerplate, a repository will need to be created on prismic.io, and the apiEndpoint in helpers.js must be changed
+
+On the Prismic.io repository, 3 new custom types will need to be created
+
+- page (API name page)
+- navigation (API name navigation)
+- footer (API name footer)
+ 
+Create these custom types in Prismic.io and paste their respective .prismic files in /prismic_custom_types into the JSON editor on the right.
+
+Then run npm install, npm start!
 
 Reactstrap:
 
