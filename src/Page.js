@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link, RichText, Date } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
-import { linkResolver, PrismicSetPage } from './helpers';
+import { linkResolver, PrismicSetPage } from './PrismicContent';
 import { Container, Row, Col } from 'reactstrap';
 
 import PageHeaderSection from './PageHeaderSection.js';
 import PageParagraphSection from './PageParagraphSection.js';
 import PageImageCardSection from './PageImageCardSection';
+import PageImageSection from './PageImageSection';
 
 class Page extends Component {
 
@@ -52,6 +53,8 @@ class Page extends Component {
             sectionContents = <PageParagraphSection slice={element} />;
           } else if (sectionComponentType === 'image_card_section') {
             sectionContents = <PageImageCardSection slice={element} />;
+          } else if (sectionComponentType === 'image_section') {
+            sectionContents = <PageImageSection slice={element} />;
           }
 
           if (sectionContents) {

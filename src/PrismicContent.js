@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
 import { Link, RichText, Date } from 'prismic-reactjs';
+import PrismicConfig from './PrismicConfig';
 
 //Add your own endpoint here
-const apiEndpoint = 'https://create-reactstrap-prismic-app.prismic.io/api/v2';
-const initialpath = 'create-reactstrap-prismic-app' //change to '' if no initial path
-export default initialpath;
+const apiEndpoint = PrismicConfig.apiEndpoint;
 
 // Link Resolver
 export function linkResolver(doc) {
@@ -16,6 +15,8 @@ export function linkResolver(doc) {
         return '/footer/' + doc.uid;
     }else if (doc.type === 'navigation') {
         return '/navigation/' + doc.uid;
+    } else if (doc.type === 'blog_post') {
+        return '/navigation/' + doc.uid;
     }
 
     // Default to homepage
@@ -25,8 +26,6 @@ export function linkResolver(doc) {
 export function PrismicSetPage(cmp) {
     let slug = cmp.props.match.params.slug;
     if (!slug || slug === '') slug = 'home';
-    //console.log(slug);
-
     Prismic.api(apiEndpoint).then(api => {
         api.query(Prismic.Predicates.at('my.page.uid', slug)).then(response => {
             if (response) {
@@ -38,12 +37,11 @@ export function PrismicSetPage(cmp) {
 
 
 //create a 'navigation' content with a slug 'navbar' to use as the main navbar
-export function PrismicSetNav(cmp) {
-
+export function PrismicSetNav(cmp, navslug) {
+    let navsluglocation = 'my.navigation.slug';
     Prismic.api(apiEndpoint).then(api => {
-        api.query(Prismic.Predicates.at('my.navigation.slug', 'navbar')).then(response => {
+        api.query(Prismic.Predicates.at(navsluglocation, navslug)).then(response => {
             if (response.results[0]) {
-                //console.log(response);
                 let nav = response.results[0];
                 let pages = nav.data.body;
                 pages.forEach(item => {
@@ -57,10 +55,11 @@ export function PrismicSetNav(cmp) {
 }
 
 //create a 'navigation' content with a slug 'footer' to use as the main footer
-export function PrismicSetFooter(cmp) {
+export function PrismicSetFooter(cmp, footerslug) {
+    let footersluglocation = 'my.footer.slug';
 
     Prismic.api(apiEndpoint).then(api => {
-        api.query(Prismic.Predicates.at('my.footer.slug', 'footer')).then(response => {
+        api.query(Prismic.Predicates.at(footersluglocation, footerslug)).then(response => {
             if (response.results[0]) {
                 cmp.setState({ doc : response.results[0] });
             }

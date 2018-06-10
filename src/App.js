@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Header from './Header';
 import Footer from './Footer';
 import Page from './Page';
-import initialpath from './helpers';
 
 class App extends Component {
   render() {

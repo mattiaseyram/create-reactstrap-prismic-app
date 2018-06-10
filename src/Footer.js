@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import { PrismicSetFooter } from './helpers';
+import { PrismicSetFooter } from './PrismicContent';
 import FooterLinkColumn from './FooterLinkColumn';
 class Footer extends Component {
 
@@ -13,7 +13,7 @@ class Footer extends Component {
     }
 
     componentWillMount() {
-        PrismicSetFooter(this);
+        PrismicSetFooter(this, 'footer');
     }
 
     render() {

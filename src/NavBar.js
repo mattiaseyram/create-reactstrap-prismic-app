@@ -16,8 +16,7 @@ import { Container } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Link, RichText, Date } from 'prismic-reactjs';
 import Prismic from 'prismic-javascript';
-import { linkResolver, PrismicSetNav } from './helpers';
-import initialpath from './helpers.js'
+import { linkResolver, PrismicSetNav } from './PrismicContent';
 
 class NavBar extends Component {
 
@@ -39,7 +38,7 @@ class NavBar extends Component {
     }
 
     componentWillMount() {
-        PrismicSetNav(this);
+        PrismicSetNav(this, 'navbar');
     }
 
     buildNavItem(item) {
@@ -65,10 +64,9 @@ class NavBar extends Component {
             }
         });
 
-
         let dropd = <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
-                {element.primary.item_title}
+                {element.primary.item_title && element.primary.item_title}
             </DropdownToggle>
             <DropdownMenu right>
                 {dropdownItems}
@@ -101,26 +99,28 @@ class NavBar extends Component {
                     navbarItems.push(this.buildDropdown(item));
                 }
             });
-        }
-
-        return (
-            <Container>
-                <Navbar light expand="md">
+            return (
+                <Container>
+                    <Navbar light expand="md">
                         <NavbarBrand href="#/home">
                             <span>
                                 {navbarImage &&
                                     <img width="140" height="70" src={navbarImage}></img>} {navbarTitle}
                             </span>
                         </NavbarBrand>
-                    <NavbarToggler onClick={this.toggle} />
-                    <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav navbar>
-                            {navbarItems}
-                        </Nav>
-                    </Collapse>
-                </Navbar>
-            </Container>
-        )
+                        <NavbarToggler onClick={this.toggle} />
+                        <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav navbar>
+                                {navbarItems}
+                            </Nav>
+                        </Collapse>
+                    </Navbar>
+                </Container>
+            );
+        }
+
+        return <div></div>;
+
     }
 }
 
