@@ -1,7 +1,7 @@
 {
   "name": "create-reactstrap-prismic-app",
   "homepage": "http://www.mattiaseyram.com/create-reactstrap-prismic-app",
-  "version": "0.2.48",
+  "version": "0.2.50",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",

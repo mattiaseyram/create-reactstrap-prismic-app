@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Prismic from 'prismic-javascript';
-import { Link, RichText, Date } from 'prismic-reactjs';
 
 class PageImageSection extends Component {
 
@@ -17,30 +15,29 @@ class PageImageSection extends Component {
         if (slice.primary.image_alt_text) imgalt = slice.primary.image_alt_text;
         if (slice.primary.display_type) displaytype = slice.primary.display_type;
 
-        let thisimg = <img src={imgsrc} alt-text={imgalt} className="img-fluid"></img>;;
+        let thisimg = <Col md="4"><img src={imgsrc} alt={imgalt} className="img-fluid fit-image"></img></Col>;
 
         switch (displaytype) {
-            case 'full_image':
-                thisimg = <img src={imgsrc} alt-text={imgalt} className="img-fluid"></img>;
-                break;
-            case 'banner_image':
-                let divStyle = {
-                    backgroundImage: 'url(' + imgsrc + ')',
-                    backgroundSize: 'cover'
-                };
-                thisimg = <div style={ divStyle }><Row><Col xs='12'>test</Col></Row></div>;
+            case 'xsmall_image':
+                thisimg = <Col xs="4" md="2"><img src={imgsrc} alt={imgalt} className="img-fluid fit-image"></img></Col>;
                 break;
             case 'small_image':
-                thisimg = <div><Row className="justify-content-center"><Col xs='2'><img src={imgsrc} alt-text={imgalt} className="img-fluid"></img></Col></Row></div>;
+                thisimg = <Col md="4"><img src={imgsrc} alt={imgalt} className="img-fluid fit-image"></img></Col>;
                 break;
-                    
+            case 'medium_image':
+                thisimg = <Col md="8"><img src={imgsrc} alt={imgalt} className="img-fluid fit-image"></img></Col>;
+                break;
+            case 'large_image':
+                thisimg = <Col md="12"><img src={imgsrc} alt={imgalt} className="img-fluid fit-image"></img></Col>;
+                break;
+            default:
+                break;
         }
 
-
         return (
-            <div className="text-center">
+            <Row className="justify-content-center">
                 {thisimg}
-            </div>
+            </Row>
         );
     }
 

@@ -14,9 +14,7 @@ import {
 } from 'reactstrap';
 import { Container } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link, RichText, Date } from 'prismic-reactjs';
-import Prismic from 'prismic-javascript';
-import { linkResolver, PrismicSetNav } from './PrismicContent';
+import { PrismicSetNav } from './PrismicContent';
 
 class NavBar extends Component {
 
@@ -105,7 +103,7 @@ class NavBar extends Component {
                         <NavbarBrand href="#/home">
                             <span>
                                 {navbarImage &&
-                                    <img width="140" height="70" src={navbarImage}></img>} {navbarTitle}
+                                    <img width="140" height="70" alt="" src={navbarImage}></img>} {navbarTitle}
                             </span>
                         </NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />

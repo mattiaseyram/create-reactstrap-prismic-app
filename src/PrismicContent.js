@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
 import Prismic from 'prismic-javascript';
-import { Link, RichText, Date } from 'prismic-reactjs';
 import PrismicConfig from './PrismicConfig';
 
 //Add your own endpoint here
@@ -11,9 +9,9 @@ export function linkResolver(doc) {
     // Define the url depending on the document type
     if (doc.type === 'page') {
         return '/page/' + doc.uid;
-    }else if (doc.type === 'footer') {
+    } else if (doc.type === 'footer') {
         return '/footer/' + doc.uid;
-    }else if (doc.type === 'navigation') {
+    } else if (doc.type === 'navigation') {
         return '/navigation/' + doc.uid;
     } else if (doc.type === 'blog_post') {
         return '/navigation/' + doc.uid;
@@ -45,10 +43,10 @@ export function PrismicSetNav(cmp, navslug) {
                 let nav = response.results[0];
                 let pages = nav.data.body;
                 pages.forEach(item => {
-                    if(item.primary.item_link && item.primary.item_link.uid)
-                        item.primary.item_link.uid='/'+item.primary.item_link.uid; //lets navbar active link work
+                    if (item.primary.item_link && item.primary.item_link.uid)
+                        item.primary.item_link.uid = '/' + item.primary.item_link.uid; //lets navbar active link work
                 });
-                cmp.setState({ doc : nav, docs : pages });
+                cmp.setState({ doc: nav, docs: pages });
             }
         });
     });
@@ -61,7 +59,7 @@ export function PrismicSetFooter(cmp, footerslug) {
     Prismic.api(apiEndpoint).then(api => {
         api.query(Prismic.Predicates.at(footersluglocation, footerslug)).then(response => {
             if (response.results[0]) {
-                cmp.setState({ doc : response.results[0] });
+                cmp.setState({ doc: response.results[0] });
             }
         });
     });

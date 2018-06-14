@@ -117,6 +117,14 @@
                 "config" : {
                   "label" : "Image Alt Text"
                 }
+              },
+              "display_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "xsmall_image", "small_image", "medium_image", "large_image" ],
+                  "default_value" : "xsmall_image",
+                  "label" : "Display Type"
+                }
               }
             },
             "repeat" : { }
