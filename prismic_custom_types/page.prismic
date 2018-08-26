@@ -13,6 +13,29 @@
         "label" : "Title"
       }
     },
+    "page_type" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "standard_page", "home_page" ],
+        "default_value" : "standard_page",
+        "label" : "Page Type"
+      }
+    },
+    "background_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Background Image"
+      }
+    },
+    "message" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Message",
+        "placeholder" : "Message"
+      }
+    },
     "body" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
@@ -66,13 +89,6 @@
                   "label" : "Component Type"
                 }
               },
-              "paragraph_header_text" : {
-                "type" : "StructuredText",
-                "config" : {
-                  "single" : "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label" : "Paragraph Header Text"
-                }
-              },
               "paragraph_text" : {
                 "type" : "StructuredText",
                 "config" : {
@@ -98,11 +114,23 @@
                   "label" : "Component Type"
                 }
               },
+              "display_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "xsmall_image", "small_image", "medium_image", "large_image" ],
+                  "default_value" : "xsmall_image",
+                  "label" : "Display Type"
+                }
+              },
               "image_field" : {
                 "type" : "Image",
                 "config" : {
                   "constraint" : { },
-                  "thumbnails" : [ ],
+                  "thumbnails" : [ {
+                    "name" : "small_view",
+                    "width" : null,
+                    "height" : 250
+                  } ],
                   "label" : "Image Field"
                 }
               },
@@ -116,14 +144,6 @@
                 "type" : "Text",
                 "config" : {
                   "label" : "Image Alt Text"
-                }
-              },
-              "display_type" : {
-                "type" : "Select",
-                "config" : {
-                  "options" : [ "xsmall_image", "small_image", "medium_image", "large_image" ],
-                  "default_value" : "xsmall_image",
-                  "label" : "Display Type"
                 }
               }
             },
@@ -177,6 +197,81 @@
                 }
               }
             }
+          },
+          "blog_section" : {
+            "type" : "Slice",
+            "fieldset" : "Blog Section",
+            "description" : "Section to display blog posts",
+            "icon" : "art_track",
+            "display" : "list",
+            "non-repeat" : {
+              "component_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "blog_section" ],
+                  "default_value" : "blog_section",
+                  "label" : "Component Type"
+                }
+              },
+              "blog_id" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Blog Id"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "contact_form" : {
+            "type" : "Slice",
+            "fieldset" : "Contact Form",
+            "description" : "Contact Us",
+            "icon" : "message",
+            "display" : "list",
+            "non-repeat" : {
+              "component_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "contact_section" ],
+                  "default_value" : "contact_section",
+                  "label" : "Component  Type"
+                }
+              },
+              "temp" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading1, heading2, heading3, heading4, heading5",
+                  "label" : "Temp Field",
+                  "placeholder" : "This is just temporary"
+                }
+              }
+            },
+            "repeat" : { }
+          },
+          "html_block_section" : {
+            "type" : "Slice",
+            "fieldset" : "HTML Block Section",
+            "description" : "Displays block of HTML Code",
+            "icon" : "code",
+            "display" : "list",
+            "non-repeat" : {
+              "component_type" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "html_block_section" ],
+                  "default_value" : "html_block_section",
+                  "label" : "Component Type"
+                }
+              },
+              "html_block" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "preformatted",
+                  "label" : "HTML Block"
+                }
+              }
+            },
+            "repeat" : { }
           }
         }
       }
