@@ -1,0 +1,43 @@
+/* App */
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.appContent {
+  flex: 1;
+}
+
+/* Header */
+.appHeader {
+}
+
+.navbarImage {
+  height: 100%;
+  width: auto;
+  padding: 15px;
+}
+
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+/* Footer */
+.appFooter {
+  padding: 2vh;
+  padding-top: 2vh;
+}
+
+/* Page */
+.pageSections {
+  padding: 2vh;
+}
+
+.pageSection {
+  padding-bottom: 1vh;
+}
+
+.card-img-top {
+  width: 100%;
+  object-fit: cover;
+}

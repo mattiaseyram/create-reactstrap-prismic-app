@@ -5,13 +5,14 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "js-cookie": "^2.2.0",
     "prismic-javascript": "^1.5.0-beta.3",
     "prismic-reactjs": "^0.3.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^1.1.5",
     "reactstrap": "^6.0.1"
   },
   "scripts": {
