@@ -6,7 +6,7 @@
   "dependencies": {
     "ajv": "^6.5.3",
     "bootstrap": "^4.1.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "js-cookie": "^2.2.0",
     "prismic-javascript": "^1.5.0-beta.3",
     "prismic-reactjs": "^0.3.1",
